@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Environment Test</title>
+  <script src="env.js" defer></script>
+</head>
+<body>
+  <h1>Environment Test</h1>
+  <p>Environment: <span id="env">Unknown</span></p>
+  <p>Api End-Point: <span id="apiEndpoint">Unknown</span></p>
+  <p>Debug Mode: <span id="debugMode">Unknown</span></p>
+  <script>
+    window.onload = function () {
+      if (typeof environment !== "undefined") {
+        document.getElementById('env').textContent = environment.name || "Unknown";
+        document.getElementById('apiEndpoint').textContent = environment.apiEndpoint || "Unknown";
+        document.getElementById('debugMode').textContent = environment.debugMode || "Unknown";
+      } else {
+        console.error("Environment is not defined");
+      }
+    };
+  </script>
+</body>
+</html>
